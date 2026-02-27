@@ -1,6 +1,6 @@
 from flask import Flask
 from .settings.config import Config
-from .settings.extensions import db, migrate, jwt
+from .settings.extensions import db, migrate, jwt, swagger
 
 
 def create_app():
@@ -10,6 +10,7 @@ def create_app():
     db.init_app(app)
     migrate.init_app(app, db)
     jwt.init_app(app)
+    swagger.init_app(app)
 
     from src.models.tools_model import Tool
 
